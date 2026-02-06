@@ -8,6 +8,7 @@ import RSVPForm from './components/RSVPForm.vue'
 import AppFooter from './components/AppFooter.vue'
 import MusicPlayer from './components/MusicPlayer.vue'
 import { Menu, X } from 'lucide-vue-next'
+import backgroundUrl from './components/img/bg2.jpg'
 
 const isMenuOpen = ref(false)
 const isScrolled = ref(false)
@@ -48,7 +49,7 @@ const toggleMenu = () => {
 <template>
   <div
     class="min-h-screen bg-cover bg-center bg-fixed relative selection:bg-wedding-gold/30 selection:text-wedding-gold-dark"
-    style="background-image: url('/src/components/img/bg2.jpg');"
+    :style="{ backgroundImage: `url(${backgroundUrl})` }"
   >
     <!-- Navigation -->
     <nav
