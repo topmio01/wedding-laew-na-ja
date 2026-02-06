@@ -7,6 +7,7 @@ import Gallery from './components/Gallery.vue'
 import RSVPForm from './components/RSVPForm.vue'
 import AppFooter from './components/AppFooter.vue'
 import MusicPlayer from './components/MusicPlayer.vue'
+import ContentTime from './components/ContentTime.vue'
 import { Menu, X } from 'lucide-vue-next'
 import backgroundUrl from './components/img/bg2.jpg'
 import backgroundUrlMobile from './components/img/bg-mobile.jpg'
@@ -131,6 +132,7 @@ const toggleMenu = () => {
     <!-- Main Content -->
     <main>
       <HeroSection />
+      <ContentTime />
       <!-- <OurStory /> -->
       <WeddingDetails />
       <Gallery />
