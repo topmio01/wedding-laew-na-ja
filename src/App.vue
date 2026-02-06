@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import HeroSection from './components/HeroSection.vue'
-import OurStory from './components/OurStory.vue'
+// import OurStory from './components/OurStory.vue'
 import WeddingDetails from './components/WeddingDetails.vue'
 import Gallery from './components/Gallery.vue'
 import RSVPForm from './components/RSVPForm.vue'
@@ -13,10 +13,10 @@ const isMenuOpen = ref(false)
 const isScrolled = ref(false)
 
 const navLinks = [
-  { name: 'Our Story', href: '#our-story' },
-  { name: 'Details', href: '#details' },
-  { name: 'Gallery', href: '#gallery' },
-  { name: 'RSVP', href: '#rsvp' },
+  // { name: 'เรื่องราวของเรา', href: '#our-story' },
+  { name: 'รายละเอียดงาน', href: '#details' },
+  { name: 'แกลเลอรี', href: '#gallery' },
+  { name: 'ตอบรับคำเชิญ', href: '#rsvp' },
 ]
 
 onMounted(() => {
@@ -47,7 +47,8 @@ const toggleMenu = () => {
 
 <template>
   <div
-    class="min-h-screen bg-wedding-ivory relative selection:bg-wedding-gold/30 selection:text-wedding-gold-dark"
+    class="min-h-screen bg-cover bg-center bg-fixed relative selection:bg-wedding-gold/30 selection:text-wedding-gold-dark"
+    style="background-image: url('/src/components/img/bg2.jpg');"
   >
     <!-- Navigation -->
     <nav
@@ -56,7 +57,7 @@ const toggleMenu = () => {
     >
       <div class="max-w-7xl mx-auto flex justify-between items-center">
         <a href="#" class="text-2xl font-romantic text-wedding-gold font-bold tracking-tighter"
-          >A & I</a
+          >P & T</a
         >
 
         <!-- Desktop Nav -->
@@ -105,7 +106,7 @@ const toggleMenu = () => {
     <!-- Main Content -->
     <main>
       <HeroSection />
-      <OurStory />
+      <!-- <OurStory /> -->
       <WeddingDetails />
       <Gallery />
       <RSVPForm />

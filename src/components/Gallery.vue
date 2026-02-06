@@ -1,4 +1,6 @@
 <script setup lang="ts">
+defineOptions({ name: 'WeddingGallery' })
+
 import { ref } from 'vue'
 import { X, ZoomIn } from 'lucide-vue-next'
 
@@ -25,10 +27,11 @@ const closeLightbox = () => {
 </script>
 
 <template>
-  <section id="gallery" class="section-padding bg-wedding-ivory">
+   <!-- <section id="gallery" class="section-padding bg-wedding-ivory"> -->
+  <section id="gallery" class="section-padding bg-transparent">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-16 reveal">
-        <h2 class="text-4xl md:text-5xl font-serif text-slate-800 mb-4">Gallery</h2>
+        <h2 class="text-4xl md:text-5xl font-serif text-slate-800 mb-4">แกลเลอรี</h2>
         <div class="w-16 h-1 bg-wedding-gold/20 mx-auto"></div>
       </div>
 
@@ -42,7 +45,7 @@ const closeLightbox = () => {
         >
           <img
             :src="img"
-            alt="Gallery image"
+            alt="รูปภาพในแกลเลอรี"
             class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
           />
           <div

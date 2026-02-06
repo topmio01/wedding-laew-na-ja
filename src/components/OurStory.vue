@@ -1,35 +1,33 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import { Heart } from 'lucide-vue-next'
 
 const stories = [
   {
-    date: 'August 2018',
-    title: 'How We Met',
+    date: 'สิงหาคม 2018',
+    title: 'เราเจอกันได้อย่างไร',
     description:
-      'A chance encounter at a cozy bookstore in Paris. He was looking for Hemingway, she was holding the last copy.',
+      'เราได้พบกันโดยบังเอิญที่ร้านหนังสือเล็ก ๆ แสนอบอุ่นในปารีส เขากำลังมองหาหนังสือของเฮมิงเวย์ ส่วนเธอกำลังถือเล่มสุดท้ายอยู่พอดี',
     image:
       'https://images.unsplash.com/photo-1516589174184-c685266d4ca4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
   },
   {
-    date: 'December 2020',
-    title: 'First Trip Together',
+    date: 'ธันวาคม 2020',
+    title: 'ทริปแรกด้วยกัน',
     description:
-      'Exploring the snowy peaks of the Swiss Alps. It was then we knew this was something special.',
+      'ออกเดินทางไปสัมผัสยอดเขาที่ปกคลุมด้วยหิมะของเทือกเขาแอลป์สวิส และตอนนั้นเองที่เรารู้ว่าความสัมพันธ์ครั้งนี้พิเศษกว่าที่เคย',
     image:
       'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
   },
   {
-    date: 'June 2024',
-    title: 'The Proposal',
+    date: 'มิถุนายน 2024',
+    title: 'คำขอแต่งงาน',
     description:
-      'Under the starlit sky on a private beach in Santorini. Tears of joy and a resounding "Yes!"',
+      'ใต้ท้องฟ้าที่เต็มไปด้วยดาวบนชายหาดส่วนตัวที่ซานโตรินี น้ำตาแห่งความสุข และคำตอบที่ดังชัดว่า “ตกลง!”',
     image:
       'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
   },
 ]
-
-const sectionRef = ref<HTMLElement | null>(null)
 
 onMounted(() => {
   const observer = new IntersectionObserver(
@@ -49,11 +47,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="our-story" class="section-padding bg-wedding-ivory">
+  <!-- <section id="our-story" class="section-padding bg-wedding-ivory"> -->
+  <section id="our-story" class="section-padding bg-transparent">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-20 reveal">
         <Heart class="w-8 h-8 text-wedding-gold mx-auto mb-4" />
-        <h2 class="text-4xl md:text-5xl font-serif text-slate-800 mb-4">Our Story</h2>
+        <h2 class="text-4xl md:text-5xl font-serif text-slate-800 mb-4">เรื่องราวของเรา</h2>
         <div class="w-20 h-1 bg-wedding-gold/30 mx-auto"></div>
       </div>
 
