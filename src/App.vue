@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import HeroSection from './components/HeroSection.vue'
 // import OurStory from './components/OurStory.vue'
 import WeddingDetails from './components/WeddingDetails.vue'
@@ -9,9 +9,19 @@ import AppFooter from './components/AppFooter.vue'
 import MusicPlayer from './components/MusicPlayer.vue'
 import { Menu, X } from 'lucide-vue-next'
 import backgroundUrl from './components/img/bg2.jpg'
+import backgroundUrlMobile from './components/img/bg-mobile.jpg'
+
 
 const isMenuOpen = ref(false)
 const isScrolled = ref(false)
+const isMobile = ref(false)
+
+const currentBackgroundUrl = computed(() =>
+  isMobile.value ? backgroundUrlMobile : backgroundUrl,
+)
+
+let mobileMql: MediaQueryList | null = null
+let onMobileMqlChange: ((event: MediaQueryListEvent) => void) | null = null
 
 const navLinks = [
   // { name: 'เรื่องราวของเรา', href: '#our-story' },
@@ -21,6 +31,14 @@ const navLinks = [
 ]
 
 onMounted(() => {
+  mobileMql = window.matchMedia('(max-width: 1024px)')
+  isMobile.value = mobileMql.matches
+
+  onMobileMqlChange = (event: MediaQueryListEvent) => {
+    isMobile.value = event.matches
+  }
+  mobileMql.addEventListener('change', onMobileMqlChange)
+
   // Scroll reveal logic
   const observer = new IntersectionObserver(
     (entries) => {
@@ -41,6 +59,12 @@ onMounted(() => {
   })
 })
 
+onUnmounted(() => {
+  if (mobileMql && onMobileMqlChange) {
+    mobileMql.removeEventListener('change', onMobileMqlChange)
+  }
+})
+
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
@@ -49,7 +73,7 @@ const toggleMenu = () => {
 <template>
   <div
     class="min-h-screen bg-cover bg-center bg-fixed relative selection:bg-wedding-gold/30 selection:text-wedding-gold-dark"
-    :style="{ backgroundImage: `url(${backgroundUrl})` }"
+    :style="{ backgroundImage: `url(${currentBackgroundUrl})` }"
   >
     <!-- Navigation -->
     <nav
