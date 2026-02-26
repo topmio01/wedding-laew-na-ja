@@ -71,11 +71,11 @@ onMounted(() => {
       </div>
 
       <Volume2 v-if="!isMuted" class="w-6 h-6 text-wedding-gold" />
-      <VolumeX v-else class="w-6 h-6 text-slate-400" />
+      <VolumeX v-else class="w-6 h-6 text-wedding-ink/50" />
 
       <!-- Tooltip -->
       <span
-        class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-white px-3 py-1 rounded-md text-xs font-medium text-slate-600 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-sm"
+        class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-wedding-champagne px-3 py-1 rounded-md text-xs font-medium text-wedding-ink/80 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-sm"
       >
         {{ isMuted ? 'เล่นเพลง' : 'ปิดเสียงเพลง' }}
       </span>

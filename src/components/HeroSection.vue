@@ -8,7 +8,7 @@ import { ChevronDown } from 'lucide-vue-next'
 
 <template>
   <section
-    class="relative min-h-screen w-full flex items-center justify-center overflow-hidden landscape:overflow-visible landscape:py-6"
+    class="relative min-h-screen w-full flex items-center justify-center overflow-hidden landscape:overflow-visible landscape:py-6 animate-float"
   >
     <!-- Background Image with Parallax effect -->
     <div
@@ -22,52 +22,24 @@ import { ChevronDown } from 'lucide-vue-next'
     >
     </div>
     <!-- Content -->
-    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto landscape:pt-6">
-      <img
-        :src="ofal2Url"
-        alt="ลวดลายตกแต่ง"
-        class="mx-auto mb-4 w-[16rem] md:w-[20rem] h-auto opacity-90 landscape:w-[16rem] landscape:mb-2"
-      />
-      <p
-        class="text-slate-900/90 text-sm md:text-base uppercase tracking-[0.5em] mb-6 animate-fade-in font-medium landscape:mb-3"
+    <div class="relative z-10 w-full px-4 landscape:pt-6">
+      <div
+        class="mx-auto max-w-xl md:max-w-2xl rounded-[2.5rem] glass shadow-2xl px-8 py-10 md:px-14 md:py-14 text-center"
       >
-        งานแต่งงานของ
-      </p>
-
-      <h1 class="text-8xl md:text-[11rem] text-slate-900 font-serif mb-8 animate-float landscape:text-5xl landscape:mb-4">
-        <span
-          class="block italic text-5xl md:text-7xl mb-2 font-romantic text-wedding-gold-light landscape:text-2xl landscape:mb-1"
-          >Tanaporn</span
-        >
-        <span class="block landscape:leading-none">&</span>
-        <span
-          class="block italic text-5xl md:text-7xl mt-2 font-romantic text-wedding-gold-light landscape:text-2xl landscape:mt-1"
-          >Bundit</span
-        >
-      </h1>
-
-      <!-- <div class="space-y-4 mb-12 landscape:space-y-2 landscape:mb-6">
-        <p
-          class="text-slate-900 text-3xl md:text-4xl font-serif tracking-widest animate-fade-in delay-300"
-        >
-          2 สิงหาคม 2026
-        </p>
-        <p
-          class="text-slate-900/80 text-lg md:text-xl uppercase tracking-[0.3em] animate-fade-in delay-500"
-        >
-          เพกะลาว คลอง 4
-        </p>
-      </div> -->
-
-      <!-- <div class="mt-8">
-        <CountdownTimer :target-date="weddingDate" />
-      </div> -->
+        <img
+          :src="ofal2Url"
+          class="mx-auto mb-6 w-[18rem] md:w-[22rem] lg:w-[26rem] h-auto opacity-90"
+        />
+        <h1 class="text-6xl md:text-8xl lg:text-[9rem] text-wedding-ink font-serif mb-4 ">
+          <span class="block italic text-4xl md:text-6xl mb-1 font-romantic text-wedding-gold-light"
+            >Tanaporn & Bundit</span
+          >
+        </h1>
+      </div>
     </div>
-
-    <!-- Scroll Indicator -->
     <a
       href="#time"
-      class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-slate-900/70 hover:text-slate-900 transition-colors duration-300 group"
+      class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-wedding-ink/70 hover:text-wedding-ink transition-colors duration-300 group"
     >
       <span class="text-[10px] uppercase tracking-[0.3em]">เลื่อนลง</span>
       <ChevronDown class="w-6 h-6 animate-bounce" />

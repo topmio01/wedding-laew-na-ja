@@ -15,8 +15,8 @@ const directionsUrl = 'https://www.google.com/maps/dir/?api=1&destination=13.981
   <section id="details" class="section-padding bg-transparent">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16 reveal">
-        <h2 class="text-4xl md:text-5xl font-serif text-slate-800 mb-4">รายละเอียดงาน</h2>
-        <p class="text-slate-600 font-sans tracking-widest uppercase text-sm">วันเวลาและสถานที่</p>
+        <h2 class="text-4xl md:text-5xl font-serif text-wedding-ink mb-4">รายละเอียดงาน</h2>
+        <p class="text-wedding-ink/70 font-sans tracking-widest uppercase text-sm">วันเวลาและสถานที่</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-12 items-start">
@@ -28,7 +28,7 @@ const directionsUrl = 'https://www.google.com/maps/dir/?api=1&destination=13.981
             </div>
             <div>
               <h3 class="text-2xl font-serif mb-2">สถานที่จัดงาน</h3>
-              <p class="text-slate-600 leading-relaxed">
+              <p class="text-wedding-ink/70 leading-relaxed">
                 ร้านเพกะลาว ลำลูกกา คลอง 4<br />
                 70/24 ตำบล ลาดสวาย อำเภอลำลูกกา <br />
                 ปทุมธานี 12120
@@ -81,8 +81,8 @@ const directionsUrl = 'https://www.google.com/maps/dir/?api=1&destination=13.981
               <component :is="item.icon" class="w-6 h-6 text-wedding-gold" />
             </div>
             <div>
-              <h4 class="text-xl font-serif text-slate-800">{{ item.event }}</h4>
-              <p class="text-sm text-slate-500 uppercase tracking-wider">{{ item.detail }}</p>
+              <h4 class="text-xl font-serif text-wedding-ink">{{ item.event }}</h4>
+              <p class="text-sm text-wedding-ink/60 uppercase tracking-wider">{{ item.detail }}</p>
             </div>
           </div>
         </div>
