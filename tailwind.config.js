@@ -5,17 +5,23 @@ export default {
     extend: {
       colors: {
         wedding: {
-          ivory: '#fffdfa',
-          champagne: '#fdf5e6',
+          ivory: '#fbf5ec',
+          champagne: '#f6efe5',
+          ink: '#4a342e',
           blush: {
-            light: '#fff5f7',
-            DEFAULT: '#fce4ec',
-            dark: '#f8bbd0',
+            light: '#f7ebe7',
+            DEFAULT: '#efd6d1',
+            dark: '#e3beb6',
           },
           gold: {
-            light: '#e5c05b',
-            DEFAULT: '#d4af37',
-            dark: '#b8860b',
+            light: '#b77b66',
+            DEFAULT: '#8b5a45',
+            dark: '#6f4638',
+          },
+          sage: {
+            light: '#dfe7d9',
+            DEFAULT: '#93a188',
+            dark: '#6f7e66',
           },
         },
       },

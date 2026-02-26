@@ -9,8 +9,8 @@ import AppFooter from './components/AppFooter.vue'
 import MusicPlayer from './components/MusicPlayer.vue'
 import ContentTime from './components/ContentTime.vue'
 import { Menu, X } from 'lucide-vue-next'
-import backgroundUrl from './components/img/bg2.jpg'
-import backgroundUrlMobile from './components/img/bg-mobile.jpg'
+import backgroundUrl from './components/img/bg3.jpg'
+import backgroundUrlMobile from './components/img/bg3.jpg'
 
 
 const isMenuOpen = ref(false)
@@ -79,7 +79,11 @@ const toggleMenu = () => {
     <!-- Navigation -->
     <nav
       class="fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-6 py-4"
-      :class="isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-sm py-3' : 'bg-transparent'"
+      :class="
+        isScrolled
+          ? 'bg-wedding-champagne/90 backdrop-blur-lg shadow-sm py-3'
+          : 'bg-transparent'
+      "
     >
       <div class="max-w-7xl mx-auto flex justify-between items-center">
         <a href="#" class="text-2xl font-romantic text-wedding-gold font-bold tracking-tighter"
@@ -93,7 +97,7 @@ const toggleMenu = () => {
             :key="link.name"
             :href="link.href"
             class="text-sm uppercase tracking-[0.2em] font-medium transition-colors hover:text-wedding-gold"
-            :class="isScrolled ? 'text-slate-600' : 'text-white'"
+            :class="isScrolled ? 'text-wedding-ink/80' : 'text-white'"
           >
             {{ link.name }}
           </a>
@@ -103,7 +107,7 @@ const toggleMenu = () => {
         <button
           @click="toggleMenu"
           class="md:hidden p-2 rounded-full transition-colors"
-          :class="isScrolled ? 'text-slate-800' : 'text-white'"
+          :class="isScrolled ? 'text-wedding-ink' : 'text-white'"
         >
           <Menu v-if="!isMenuOpen" class="w-6 h-6" />
           <X v-else class="w-6 h-6" />
@@ -115,14 +119,14 @@ const toggleMenu = () => {
     <Transition name="fade">
       <div
         v-if="isMenuOpen"
-        class="fixed inset-0 z-[90] bg-white flex flex-col items-center justify-center gap-8 md:hidden"
+        class="fixed inset-0 z-[90] bg-wedding-champagne flex flex-col items-center justify-center gap-8 md:hidden"
       >
         <a
           v-for="link in navLinks"
           :key="link.name"
           :href="link.href"
           @click="toggleMenu"
-          class="text-2xl font-serif text-slate-800 tracking-widest hover:text-wedding-gold transition-colors"
+          class="text-2xl font-serif text-wedding-ink tracking-widest hover:text-wedding-gold transition-colors"
         >
           {{ link.name }}
         </a>

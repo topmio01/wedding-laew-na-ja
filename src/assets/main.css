@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-wedding-ivory text-slate-800 font-sans;
+    @apply bg-wedding-ivory text-wedding-ink font-sans;
   }
 
   h1,

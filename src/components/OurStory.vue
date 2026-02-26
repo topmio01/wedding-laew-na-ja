@@ -52,7 +52,7 @@ onMounted(() => {
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-20 reveal">
         <Heart class="w-8 h-8 text-wedding-gold mx-auto mb-4" />
-        <h2 class="text-4xl md:text-5xl font-serif text-slate-800 mb-4">เรื่องราวของเรา</h2>
+        <h2 class="text-4xl md:text-5xl font-serif text-wedding-ink mb-4">เรื่องราวของเรา</h2>
         <div class="w-20 h-1 bg-wedding-gold/30 mx-auto"></div>
       </div>
 
@@ -79,8 +79,8 @@ onMounted(() => {
                 class="text-wedding-gold font-medium uppercase tracking-widest text-sm mb-2 block italic font-romantic"
                 >{{ item.date }}</span
               >
-              <h3 class="text-2xl font-serif text-slate-800 mb-3">{{ item.title }}</h3>
-              <p class="text-slate-600 leading-relaxed">{{ item.description }}</p>
+              <h3 class="text-2xl font-serif text-wedding-ink mb-3">{{ item.title }}</h3>
+              <p class="text-wedding-ink/70 leading-relaxed">{{ item.description }}</p>
             </div>
 
             <!-- Point -->

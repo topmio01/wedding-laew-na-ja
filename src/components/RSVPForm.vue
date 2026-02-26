@@ -33,8 +33,8 @@ const handleSubmit = async () => {
 
     <div class="max-w-2xl mx-auto px-4 relative z-10">
       <div class="text-center mb-12 reveal">
-        <h2 class="text-4xl md:text-5xl font-serif text-slate-800 mb-4">คุณจะมาร่วมงานกับเรามั้ย?</h2>
-        <p class="text-slate-600 font-sans tracking-widest uppercase text-sm">กรุณาตอบรับภายใน 14 พฤษภาคม 2025</p>
+        <h2 class="text-4xl md:text-5xl font-serif text-wedding-ink mb-4">คุณจะมาร่วมงานกับเรามั้ย?</h2>
+        <p class="text-wedding-ink/70 font-sans tracking-widest uppercase text-sm">กรุณาตอบรับภายใน 14 พฤษภาคม 2025</p>
       </div>
 
       <div class="glass p-8 md:p-12 rounded-[2rem] shadow-xl reveal">
@@ -42,7 +42,7 @@ const handleSubmit = async () => {
           <form @submit.prevent="handleSubmit" class="space-y-6">
             <div class="grid md:grid-cols-2 gap-6">
               <div class="space-y-2">
-                <label class="text-xs uppercase tracking-widest text-slate-500 font-semibold ml-1"
+                <label class="text-xs uppercase tracking-widest text-wedding-ink/70 font-semibold ml-1"
                   >ชื่อ-นามสกุล</label
                 >
                 <input
@@ -54,7 +54,7 @@ const handleSubmit = async () => {
                 />
               </div>
               <div class="space-y-2">
-                <label class="text-xs uppercase tracking-widest text-slate-500 font-semibold ml-1"
+                <label class="text-xs uppercase tracking-widest text-wedding-ink/70 font-semibold ml-1"
                   >อีเมล</label
                 >
                 <input
@@ -68,7 +68,7 @@ const handleSubmit = async () => {
             </div>
 
             <div class="space-y-2">
-              <label class="text-xs uppercase tracking-widest text-slate-500 font-semibold ml-1"
+              <label class="text-xs uppercase tracking-widest text-wedding-ink/70 font-semibold ml-1"
                 >คุณจะมาร่วมงานหรือไม่?</label
               >
               <div class="flex gap-4">
@@ -78,7 +78,7 @@ const handleSubmit = async () => {
                   :class="
                     form.attending === 'yes'
                       ? 'bg-wedding-gold text-white'
-                      : 'bg-white text-slate-600 hover:bg-wedding-gold/10'
+                      : 'bg-white/70 text-wedding-ink/70 hover:bg-wedding-gold/10'
                   "
                   class="flex-1 py-4 rounded-2xl border border-wedding-gold/20 font-medium transition-all"
                 >
@@ -90,7 +90,7 @@ const handleSubmit = async () => {
                   :class="
                     form.attending === 'no'
                       ? 'bg-wedding-gold text-white'
-                      : 'bg-white text-slate-600 hover:bg-wedding-gold/10'
+                      : 'bg-white/70 text-wedding-ink/70 hover:bg-wedding-gold/10'
                   "
                   class="flex-1 py-4 rounded-2xl border border-wedding-gold/20 font-medium transition-all"
                 >
@@ -100,7 +100,7 @@ const handleSubmit = async () => {
             </div>
 
             <div v-if="form.attending === 'yes'" class="space-y-2 animate-fade-in">
-              <label class="text-xs uppercase tracking-widest text-slate-500 font-semibold ml-1"
+              <label class="text-xs uppercase tracking-widest text-wedding-ink/70 font-semibold ml-1"
                 >จำนวนผู้ร่วมงาน</label
               >
               <select
@@ -114,7 +114,7 @@ const handleSubmit = async () => {
             </div>
 
             <div class="space-y-2">
-              <label class="text-xs uppercase tracking-widest text-slate-500 font-semibold ml-1"
+              <label class="text-xs uppercase tracking-widest text-wedding-ink/70 font-semibold ml-1"
                 >ข้อความถึงบ่าวสาว (ไม่บังคับ)</label
               >
               <textarea
@@ -148,12 +148,12 @@ const handleSubmit = async () => {
         <!-- Success Message -->
         <div v-else class="text-center py-12 animate-scale-in">
           <div
-            class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+            class="w-20 h-20 bg-wedding-sage-light rounded-full flex items-center justify-center mx-auto mb-6"
           >
-            <CheckCircle2 class="w-10 h-10 text-green-500" />
+            <CheckCircle2 class="w-10 h-10 text-wedding-sage-dark" />
           </div>
-          <h3 class="text-3xl font-serif text-slate-800 mb-4">ขอบคุณมาก!</h3>
-          <p class="text-slate-600 leading-relaxed mb-8">
+          <h3 class="text-3xl font-serif text-wedding-ink mb-4">ขอบคุณมาก!</h3>
+          <p class="text-wedding-ink/70 leading-relaxed mb-8">
             เราได้รับคำตอบรับของคุณแล้ว แล้วพบกันในวันสำคัญนะคะ/ครับ
           </p>
           <button

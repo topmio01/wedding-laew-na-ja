@@ -31,7 +31,7 @@ const closeLightbox = () => {
   <section id="gallery" class="section-padding bg-transparent">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-16 reveal">
-        <h2 class="text-4xl md:text-5xl font-serif text-slate-800 mb-4">แกลเลอรี</h2>
+        <h2 class="text-4xl md:text-5xl font-serif text-wedding-ink mb-4">แกลเลอรี</h2>
         <div class="w-16 h-1 bg-wedding-gold/20 mx-auto"></div>
       </div>
 
