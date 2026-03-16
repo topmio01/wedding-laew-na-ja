@@ -1,10 +1,15 @@
 <script setup lang="ts">
-import { MapPin, Church, Wine, Music } from 'lucide-vue-next'
+import { MapPin } from 'lucide-vue-next'
+import icon1Url from './img/1.png'
+import icon2Url from './img/2.png'
+import icon3Url from './img/3.png'
+import icon4Url from './img/4.png'
 
 const schedule = [
-  { time: '16:00 น.', event: 'พิธีแต่งงาน', icon: Church, detail: 'สวนรอยัล' },
-  { time: '17:30 น.', event: 'ค็อกเทล', icon: Wine, detail: 'ซันเทอเรซ' },
-  { time: '19:00 น.', event: 'ดินเนอร์และแดนซ์', icon: Music, detail: 'ห้องบอลรูมใหญ่' },
+  { time: '07:09 น.', event: 'พิธีสงฆ์', iconUrl: icon1Url },
+  { time: '08:29 น.', event: 'พิธีแห่ขันหมาก', iconUrl: icon2Url },
+  { time: '09:39 น.', event: 'พิธีรับไหว้ พิธีหลั่งน้ำพระพุทธมนต์', iconUrl: icon3Url },
+  { time: '11:30 น.', event: 'งานเลี้ยงฉลองมงคลสมรส', iconUrl: icon4Url },
 ]
 
 const directionsUrl = 'https://www.google.com/maps/dir/?api=1&destination=13.9812176,100.6849677'
@@ -76,13 +81,12 @@ const directionsUrl = 'https://www.google.com/maps/dir/?api=1&destination=13.981
             </div>
             <div class="w-px h-12 bg-wedding-gold/20"></div>
             <div
-              class="bg-wedding-gold/5 p-3 rounded-full group-hover:scale-110 transition-transform"
+              class="bg-wedding-gold/5 p-4 rounded-full group-hover:scale-110 transition-transform"
             >
-              <component :is="item.icon" class="w-6 h-6 text-wedding-gold" />
+              <img :src="item.iconUrl" alt="" class="w-9 h-9" loading="lazy" />
             </div>
             <div>
               <h4 class="text-xl font-serif text-wedding-ink">{{ item.event }}</h4>
-              <p class="text-sm text-wedding-ink/60 uppercase tracking-wider">{{ item.detail }}</p>
             </div>
           </div>
         </div>
