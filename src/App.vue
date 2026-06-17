@@ -9,10 +9,10 @@ import AppFooter from './components/AppFooter.vue'
 import MusicPlayer from './components/MusicPlayer.vue'
 import ContentTime from './components/ContentTime.vue'
 import { Menu, X } from 'lucide-vue-next'
-import c1Url from './components/img/C1.jpg'
-import c2Url from './components/img/C2.jpg'
-import backgroundUrl from './components/img/bg4.jpg'
-import backgroundUrlMobile from './components/img/bg-mobile2.jpg'
+import c1Url from './assets/img/C1.jpg'
+import c2Url from './assets/img/C2.jpg'
+import backgroundUrl from './assets/img/bg4.jpg'
+import backgroundUrlMobile from './assets/img/bg-mobile2.jpg'
 
 
 const isMenuOpen = ref(false)
@@ -128,25 +128,48 @@ const toggleMenu = () => {
 
 <template>
   <div
-    class="min-h-screen bg-cover bg-center bg-fixed relative selection:bg-wedding-gold/30 selection:text-wedding-gold-dark"
+    class="min-h-screen bg-cover bg-center bg-fixed relative"
+    style="--tw-selection-bg:rgba(123,70,52,0.25);"
     :style="{ backgroundImage: `url(${currentBackgroundUrl})` }"
   >
     <div
       v-if="!hasEntered"
       class="fixed inset-0 z-[200] flex items-center justify-center px-6"
     >
-      <div class="absolute inset-0 bg-black/35 backdrop-blur-sm"></div>
+      <div class="absolute inset-0 backdrop-blur-sm" style="background:rgba(44,46,43,0.28);"></div>
       <div
-        class="relative w-full max-w-md rounded-[2.5rem] glass shadow-2xl px-8 py-10 text-center"
+        class="relative w-full max-w-sm rounded-[2.5rem] shadow-2xl px-8 py-10 text-center glass"
       >
-        <div class="text-sm uppercase tracking-[0.5em] text-wedding-ink/70 mb-4">
-          Wedding Invitation
+        <!-- Amber blob — warm highlight from C1.jpg -->
+        <div class="absolute -top-16 -right-16 w-48 h-48 blob-amber opacity-50 pointer-events-none"></div>
+
+        <!-- Top ornament -->
+        <div class="flex items-center justify-center gap-3 mb-5">
+          <div class="h-px w-8" style="background:linear-gradient(90deg,transparent,rgba(123,70,52,0.28));"></div>
+          <span class="ornament-star text-sm">✦</span>
+          <div class="h-px w-8" style="background:linear-gradient(270deg,transparent,rgba(123,70,52,0.28));"></div>
         </div>
-        <div class="text-4xl font-romantic text-wedding-gold italic mb-2">
-          Tanaporn & Bundit
+
+        <p class="label-caps mb-4">Wedding Invitation</p>
+
+        <div class="font-romantic italic leading-tight mb-0.5"
+             style="font-size:2.2rem; color:#7B4634;">Tanaporn</div>
+        <div class="font-sans text-sm mb-0.5" style="color:rgba(44,46,43,0.35);">&amp;</div>
+        <div class="font-romantic italic leading-tight mb-5"
+             style="font-size:2.2rem; color:#7B4634;">Bundit</div>
+
+        <p class="label-caps mb-8" style="letter-spacing:0.28em;">2 สิงหาคม 2026</p>
+
+        <button type="button" class="btn-gold w-full text-sm" @click="enterSite">
+          เปิดการ์ดเชิญ
+        </button>
+
+        <!-- Bottom ornament -->
+        <div class="flex items-center justify-center gap-3 mt-6">
+          <div class="h-px w-8" style="background:rgba(123,70,52,0.15);"></div>
+          <span class="font-sans text-xs" style="color:rgba(44,46,43,0.18);">♥</span>
+          <div class="h-px w-8" style="background:rgba(123,70,52,0.15);"></div>
         </div>
-        <div class="text-wedding-ink/70 text-sm mb-8">แตะเพื่อเปิดการ์ดเชิญ</div>
-        <button type="button" class="btn-gold w-full" @click="enterSite">เปิดการ์ด</button>
       </div>
     </div>
 
@@ -154,16 +177,16 @@ const toggleMenu = () => {
     <nav
       v-if="hasEntered"
       class="fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-6 py-4"
-      :class="
-        isScrolled
-          ? 'bg-wedding-champagne/90 backdrop-blur-lg shadow-sm py-3'
-          : 'bg-transparent'
-      "
+      :class="isScrolled ? 'py-3' : ''"
+      :style="isScrolled
+        ? 'background:rgba(245,241,232,0.88); backdrop-filter:blur(20px); box-shadow:0 1px 20px rgba(123,70,52,0.08);'
+        : 'background:transparent;'"
     >
       <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="#" class="text-2xl font-romantic text-wedding-gold font-bold tracking-tighter"
-          >P & T</a
-        >
+        <!-- Logo — terracotta romantic script -->
+        <a href="#"
+           class="font-romantic italic font-bold tracking-tighter"
+           style="font-size:1.6rem; color:#7B4634;">P &amp; T</a>
 
         <!-- Desktop Nav -->
         <div class="hidden md:flex gap-10 items-center">
@@ -171,17 +194,20 @@ const toggleMenu = () => {
             v-for="link in navLinks"
             :key="link.name"
             :href="link.href"
-            class="text-sm uppercase tracking-[0.2em] font-medium transition-colors hover:text-wedding-gold"
-            :class="isScrolled ? 'text-wedding-ink/80' : 'text-wedding-ink/90'"
+            class="text-sm uppercase font-medium transition-colors"
+            style="letter-spacing:0.18em;"
+            :style="isScrolled
+              ? 'color:rgba(44,46,43,0.72)'
+              : 'color:rgba(44,46,43,0.80)'"
           >
             {{ link.name }}
           </a>
-
           <button
             type="button"
             @click="showIntro"
-            class="text-sm uppercase tracking-[0.2em] font-medium transition-colors hover:text-wedding-gold"
-            :class="isScrolled ? 'text-wedding-ink/80' : 'text-wedding-ink/90'"
+            class="text-sm uppercase font-medium transition-colors"
+            style="letter-spacing:0.18em;"
+            :style="isScrolled ? 'color:rgba(44,46,43,0.72)' : 'color:rgba(44,46,43,0.80)'"
           >
             Intro
           </button>
@@ -191,7 +217,7 @@ const toggleMenu = () => {
         <button
           @click="toggleMenu"
           class="md:hidden p-2 rounded-full transition-colors"
-          :class="isScrolled ? 'text-wedding-ink' : 'text-wedding-ink'"
+          style="color:#2C2E2B;"
         >
           <Menu v-if="!isMenuOpen" class="w-6 h-6" />
           <X v-else class="w-6 h-6" />
@@ -203,22 +229,27 @@ const toggleMenu = () => {
     <Transition name="fade">
       <div
         v-if="hasEntered && isMenuOpen"
-        class="fixed inset-0 z-[90] bg-wedding-champagne flex flex-col items-center justify-center gap-8 md:hidden"
+        class="fixed inset-0 z-[90] flex flex-col items-center justify-center gap-8 md:hidden"
+        style="background:#F5F1E8;"
       >
+        <!-- Sage botanical blob -->
+        <div class="absolute bottom-0 left-0 w-64 h-64 blob-sage opacity-60 pointer-events-none"></div>
+
         <a
           v-for="link in navLinks"
           :key="link.name"
           :href="link.href"
           @click="toggleMenu"
-          class="text-2xl font-serif text-wedding-ink tracking-widest hover:text-wedding-gold transition-colors"
+          class="text-2xl font-serif tracking-widest transition-colors"
+          style="color:#2C2E2B;"
         >
           {{ link.name }}
         </a>
-
         <button
           type="button"
           @click="showIntro"
-          class="text-2xl font-serif text-wedding-ink tracking-widest hover:text-wedding-gold transition-colors"
+          class="text-2xl font-serif tracking-widest transition-colors"
+          style="color:#2C2E2B;"
         >
           Intro
         </button>
@@ -231,14 +262,47 @@ const toggleMenu = () => {
       <ContentTime />
       <!-- <OurStory /> -->
       <section class="section-padding bg-transparent">
-        <div class="max-w-6xl mx-auto px-4">
-          <div class="grid gap-6 md:grid-cols-2">
-            <div class="glass rounded-3xl overflow-hidden shadow-xl reveal">
-              <img :src="c1Url" alt="C1" class="w-full h-auto object-cover" loading="lazy" />
+        <div class="max-w-5xl mx-auto px-4">
+          <!-- Section heading -->
+          <div class="text-center mb-12 reveal">
+            <p class="label-caps mb-3">ธนภร &amp; บัณฑิต</p>
+            <div class="ornament-divider max-w-xs mx-auto">
+              <span class="font-romantic italic text-sm" style="color:rgba(123,70,52,0.45); flex-shrink:0;">Together</span>
             </div>
-            <div class="glass rounded-3xl overflow-hidden shadow-xl reveal">
-              <img :src="c2Url" alt="C2" class="w-full h-auto object-cover" loading="lazy" />
+          </div>
+
+          <!-- Couple photos — enhanced frame to match C1.jpg linen + terracotta -->
+          <div class="grid gap-5 md:grid-cols-2 reveal">
+            <div class="photo-frame group">
+              <img
+                :src="c1Url"
+                alt="ธนภร และ บัณฑิต"
+                class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.025]"
+                loading="lazy"
+              />
+              <!-- Peach warm overlay on hover — echoes skin tone from C1.jpg -->
+              <div class="absolute inset-0 transition-colors duration-500 rounded-[1.75rem]"
+                   style="background:rgba(250,225,205,0);"></div>
             </div>
+            <div class="photo-frame group">
+              <img
+                :src="c2Url"
+                alt="ธนภร และ บัณฑิต"
+                class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.025]"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 transition-colors duration-500 rounded-[1.75rem]"
+                   style="background:rgba(250,225,205,0);"></div>
+            </div>
+          </div>
+
+          <!-- Quote below photos — italic serif matches photo warmth -->
+          <div class="text-center mt-10 reveal">
+            <p class="font-romantic italic leading-relaxed"
+               style="font-size:clamp(1.1rem,3vw,1.4rem); color:rgba(160,92,68,0.80);">
+              "รักแท้ไม่ใช่การหาคนที่สมบูรณ์แบบ<br class="hidden md:block" />
+              แต่คือการมองเห็นความสมบูรณ์แบบในคนที่คุณรัก"
+            </p>
           </div>
         </div>
       </section>
@@ -249,17 +313,19 @@ const toggleMenu = () => {
 
     <AppFooter v-if="hasEntered" />
 
-    <!-- Background Sparkles (CSS only) -->
+    <!-- Ambient sparkles — amber & sage from C1.jpg -->
     <div v-if="hasEntered" class="fixed inset-0 pointer-events-none z-50">
       <div
-        v-for="n in 20"
-        :key="n"
-        class="absolute w-1 h-1 bg-wedding-gold/40 rounded-full animate-sparkle"
+        v-for="n in 12"
+        :key="'a'+n"
+        class="absolute rounded-full animate-sparkle"
         :style="{
+          width: '3px', height: '3px',
+          background: n % 3 === 0 ? 'rgba(237,175,100,0.55)' : n % 3 === 1 ? 'rgba(143,166,88,0.45)' : 'rgba(250,225,205,0.60)',
           top: `${Math.random() * 100}%`,
           left: `${Math.random() * 100}%`,
           animationDelay: `${Math.random() * 5}s`,
-          animationDuration: `${2 + Math.random() * 3}s`,
+          animationDuration: `${2.5 + Math.random() * 3}s`,
         }"
       ></div>
     </div>
