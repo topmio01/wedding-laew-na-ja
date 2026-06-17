@@ -43,24 +43,24 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="flex gap-4 md:gap-8 justify-center items-center">
+  <div class="flex gap-3 md:gap-6 justify-center items-end">
     <div
       v-for="(value, unit) in { 'วัน': days, 'ชั่วโมง': hours, 'นาที': minutes, 'วินาที': seconds }"
       :key="unit"
-      class="flex flex-col items-center animate-fade-in-up"
-      :style="{
-        animationDelay: `${Object.keys({ 'วัน': days, 'ชั่วโมง': hours, 'นาที': minutes, 'วินาที': seconds }).indexOf(unit) * 0.1}s`,
-      }"
+      class="flex flex-col items-center"
     >
-      <div
-        class="glass w-16 h-16 md:w-24 md:h-24 flex items-center justify-center rounded-2xl shadow-sm mb-2"
-      >
-        <span class="text-2xl md:text-4xl font-serif text-wedding-gold font-bold">{{ displayValue(unit, value) }}</span>
+      <!-- Number box — linen glass from C1.jpg backdrop -->
+      <div class="countdown-box w-16 h-16 md:w-24 md:h-24 flex items-center justify-center mb-2">
+        <span class="font-serif font-bold tabular-nums drop-shadow-sm"
+              style="font-size:clamp(1.4rem,4vw,2.4rem); color:rgba(255,255,255,0.92);">
+          {{ displayValue(unit, value) }}
+        </span>
       </div>
-      <span
-        class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-wedding-gold font-semibold"
-        >{{ unit }}</span
-      >
+      <!-- Label -->
+      <span class="font-sans uppercase"
+            style="font-size:0.62rem; letter-spacing:0.28em; color:rgba(255,255,255,0.60);">
+        {{ unit }}
+      </span>
     </div>
   </div>
 </template>

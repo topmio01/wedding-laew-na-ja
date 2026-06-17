@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Google Fonts ─────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+
+/*
+  Color palette derived from C1.jpg:
+  • Linen backdrop  #F5F1E8  rgb(245,241,232)
+  • Peach skin      #FAE1CD  rgb(250,225,205)
+  • Deep terracotta #7B4634  rgb(123, 70, 52)  ← couple outfits
+  • Warm amber      #EDB564  rgb(237,175,100)   ← warm highlights
+  • Olive sage      #8FA658  rgb(143,166, 88)   ← botanicals
+  • Warm dark       #2C2E2B  rgb( 44, 46, 43)
+*/
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -9,65 +22,243 @@
 
   body {
     @apply bg-wedding-ivory text-wedding-ink font-sans;
+    /* Subtle warm paper texture via gradient */
+    background-image:
+      radial-gradient(ellipse at 20% 0%,   rgba(237,175,100,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 100%, rgba(143,166, 88,0.06) 0%, transparent 60%);
+    background-attachment: fixed;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
   }
 }
 
 @layer components {
+
+  /* ── Glass cards ──────────────────────────────────────────────────────── */
+
+  /* Default: linen-warm glass */
   .glass {
-    @apply bg-white/30 backdrop-blur-md border border-white/20;
+    background: rgba(245, 241, 232, 0.42);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    box-shadow:
+      0 4px 32px rgba(123, 70, 52, 0.07),
+      inset 0 1px 0 rgba(255, 255, 255, 0.55);
   }
 
+  /* Peach-tinted surface — used for venue / detail cards */
+  .glass-warm {
+    background: rgba(250, 225, 205, 0.28);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(250, 225, 205, 0.45);
+    box-shadow:
+      0 4px 28px rgba(123, 70, 52, 0.09),
+      inset 0 1px 0 rgba(255, 255, 255, 0.50);
+  }
+
+  /* Dark overlay glass */
   .glass-dark {
-    @apply bg-black/10 backdrop-blur-md border border-white/10;
+    background: rgba(44, 46, 43, 0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.10);
   }
 
+  /* ── Buttons ──────────────────────────────────────────────────────────── */
+
+  /* Primary — deep terracotta from C1.jpg */
   .btn-gold {
-    @apply px-8 py-3 bg-wedding-gold text-white rounded-full font-medium transition-all duration-300 hover:bg-wedding-gold-dark hover:shadow-lg hover:shadow-wedding-gold/30 active:scale-95;
+    @apply px-8 py-3 text-white rounded-full font-medium transition-all duration-300 active:scale-95;
+    background: linear-gradient(135deg, #A05C44 0%, #7B4634 100%);
+    box-shadow: 0 4px 16px rgba(123, 70, 52, 0.30);
+    letter-spacing: 0.06em;
+  }
+  .btn-gold:hover {
+    background: linear-gradient(135deg, #7B4634 0%, #5C3224 100%);
+    box-shadow: 0 6px 24px rgba(123, 70, 52, 0.40);
   }
 
+  /* Outline variant */
   .btn-outline-gold {
-    @apply px-8 py-3 border-2 border-wedding-gold text-wedding-gold rounded-full font-medium transition-all duration-300 hover:bg-wedding-gold hover:text-white active:scale-95;
+    @apply px-8 py-3 rounded-full font-medium transition-all duration-300 active:scale-95;
+    border: 1.5px solid #7B4634;
+    color: #7B4634;
+    letter-spacing: 0.06em;
   }
+  .btn-outline-gold:hover {
+    background: #7B4634;
+    color: #fff;
+  }
+
+  /* ── Typography helpers ───────────────────────────────────────────────── */
 
   .text-gradient-gold {
-    @apply bg-gradient-to-r from-wedding-gold via-wedding-gold-light to-wedding-gold bg-clip-text text-transparent;
+    background: linear-gradient(90deg, #7B4634, #EDB564, #A05C44);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
+  /* Small all-caps label */
+  .label-caps {
+    @apply font-sans font-medium;
+    font-size: 0.68rem;
+    letter-spacing: 0.40em;
+    text-transform: uppercase;
+    color: rgba(44, 46, 43, 0.52);
+  }
+
+  /* ── Layout ───────────────────────────────────────────────────────────── */
   .section-padding {
     @apply py-20 px-6 md:py-32 md:px-12;
   }
+
+  /* ── Ornament divider ─────────────────────────────────────────────────── */
+  /*
+    Usage: <div class="ornament-divider"><span>✦</span></div>
+    The ::before / ::after pseudo-elements draw the gradient lines.
+  */
+  .ornament-divider {
+    @apply flex items-center justify-center gap-4 my-4;
+  }
+  .ornament-divider::before,
+  .ornament-divider::after {
+    content: '';
+    @apply block h-px flex-1;
+    background: linear-gradient(90deg, transparent, rgba(123,70,52,0.28), transparent);
+  }
+
+  /* ── Couple photo frame ───────────────────────────────────────────────── */
+  /*
+    Matches the linen backdrop of C1.jpg; inner border echoes the terracotta.
+  */
+  .photo-frame {
+    @apply relative overflow-hidden shadow-2xl;
+    border-radius: 1.75rem;
+    background: linear-gradient(145deg, rgba(245,241,232,0.7), rgba(240,232,216,0.4));
+  }
+  .photo-frame::after {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    border-radius: inherit;
+    box-shadow:
+      inset 0 0 0 1px rgba(123, 70, 52, 0.13),
+      inset 0 2px 6px  rgba(255,255,255,0.35);
+  }
+
+  /* ── Schedule timeline card ───────────────────────────────────────────── */
+  .schedule-card {
+    @apply flex items-center gap-5 p-5 rounded-2xl transition-all duration-300;
+    background: rgba(245, 241, 232, 0.30);
+    border: 1px solid rgba(123, 70, 52, 0.08);
+  }
+  .schedule-card:hover {
+    background: rgba(250, 225, 205, 0.40);
+    border-color: rgba(123, 70, 52, 0.15);
+    box-shadow: 0 4px 20px rgba(123, 70, 52, 0.10);
+    transform: translateX(4px);
+  }
+
+  /* ── Section heading block ────────────────────────────────────────────── */
+  /*
+    Canonical pattern:
+      <div class="section-heading reveal">
+        <p class="label-caps">sub-label</p>
+        <h2>Main Title</h2>
+        <div class="ornament-divider"><span class="ornament-star">✦</span></div>
+      </div>
+  */
+  .ornament-star {
+    font-size: 0.6rem;
+    color: rgba(123, 70, 52, 0.35);
+    flex-shrink: 0;
+  }
+
+  /* ── RSVP / form inputs ───────────────────────────────────────────────── */
+  .input-wedding {
+    @apply w-full rounded-2xl outline-none transition-all font-sans text-sm;
+    padding: 1rem 1.5rem;
+    background: rgba(245, 241, 232, 0.60);
+    border: 1px solid rgba(123, 70, 52, 0.15);
+    color: #2C2E2B;
+  }
+  .input-wedding::placeholder {
+    color: rgba(44, 46, 43, 0.35);
+  }
+  .input-wedding:focus {
+    background: rgba(250, 225, 205, 0.35);
+    border-color: rgba(123, 70, 52, 0.40);
+    box-shadow: 0 0 0 3px rgba(123, 70, 52, 0.08);
+  }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-wedding-ivory;
-}
-
+/* ── Custom Scrollbar ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: #F5F1E8; }
 ::-webkit-scrollbar-thumb {
-  @apply bg-wedding-gold/30 rounded-full hover:bg-wedding-gold/50 transition-colors;
+  background: rgba(123, 70, 52, 0.22);
+  border-radius: 99px;
+  transition: background 0.2s;
 }
+::-webkit-scrollbar-thumb:hover { background: rgba(123, 70, 52, 0.40); }
 
-/* Scroll Animations */
+/* ── Scroll Reveal ────────────────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
+  transform: translateY(22px);
+  transition:
+    opacity   0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Staggered children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal-stagger.active > *:nth-child(1) { opacity:1; transform:none; transition-delay:0.05s; }
+.reveal-stagger.active > *:nth-child(2) { opacity:1; transform:none; transition-delay:0.15s; }
+.reveal-stagger.active > *:nth-child(3) { opacity:1; transform:none; transition-delay:0.25s; }
+.reveal-stagger.active > *:nth-child(4) { opacity:1; transform:none; transition-delay:0.35s; }
+
+/* ── Countdown box shine ──────────────────────────────────────────────────── */
+.countdown-box {
+  position: relative;
+  background: rgba(245, 241, 232, 0.28);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 1rem;
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.45);
+}
+.countdown-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 12px; right: 12px;
+  height: 1px;
+  background: rgba(255,255,255,0.45);
+  border-radius: 99px;
+}
+
+/* ── Amber botanical accent (used sparingly as decorative blobs) ────────── */
+.blob-amber {
+  background: radial-gradient(circle, rgba(237,175,100,0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.blob-sage {
+  background: radial-gradient(circle, rgba(143,166,88,0.14) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }

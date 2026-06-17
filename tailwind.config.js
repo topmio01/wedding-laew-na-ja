@@ -5,23 +5,58 @@ export default {
     extend: {
       colors: {
         wedding: {
-          ivory: '#fbf5ec',
-          champagne: '#f6efe5',
-          ink: '#4a342e',
-          blush: {
-            light: '#f7ebe7',
-            DEFAULT: '#efd6d1',
-            dark: '#e3beb6',
+          // ── Extracted directly from C1.jpg ──────────────────────────────
+          // Backdrop: rgb(245,241,232) → warm linen
+          ivory:     '#F5F1E8',
+          // Slightly deeper linen for surfaces
+          champagne: '#F0E8D8',
+          // Near-black warm dark rgb(44,46,43)
+          ink:       '#2C2E2B',
+
+          // Peach skin tones rgb(250,225,205) / rgb(252,231,212)
+          peach: {
+            light:   '#FBF0E6',
+            DEFAULT: '#FAE1CD',
+            dark:    '#F3D0B4',
           },
+
+          // Deep terracotta — the couple's outfits rgb(123,70,52)
+          terra: {
+            light:   '#A05C44',
+            DEFAULT: '#7B4634',
+            dark:    '#5C3224',
+          },
+
+          // Warm amber/gold highlights rgb(237,175,100) / rgb(228,193,127)
+          amber: {
+            light:   '#EDD89A',
+            DEFAULT: '#EDB564',
+            dark:    '#C8913E',
+          },
+
+          // Olive sage — botanical elements rgb(143,166,88) / rgb(153,179,105)
+          olive: {
+            light:   '#C4D49A',
+            DEFAULT: '#8FA658',
+            dark:    '#697C3A',
+          },
+
+          // ── Legacy aliases (keeps existing class names working) ─────────
+          blush: {
+            light:   '#FBF0E6',
+            DEFAULT: '#FAE1CD',
+            dark:    '#F3D0B4',
+          },
+          // gold now maps to terracotta from the photo
           gold: {
-            light: '#b77b66',
-            DEFAULT: '#8b5a45',
-            dark: '#6f4638',
+            light:   '#A05C44',
+            DEFAULT: '#7B4634',
+            dark:    '#5C3224',
           },
           sage: {
-            light: '#dfe7d9',
-            DEFAULT: '#93a188',
-            dark: '#6f7e66',
+            light:   '#C4D49A',
+            DEFAULT: '#8FA658',
+            dark:    '#697C3A',
           },
         },
       },

@@ -27,12 +27,14 @@ const closeLightbox = () => {
 </script>
 
 <template>
-   <!-- <section id="gallery" class="section-padding bg-wedding-ivory"> -->
   <section id="gallery" class="section-padding bg-transparent">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-16 reveal">
-        <h2 class="text-4xl md:text-5xl font-serif text-wedding-ink mb-4">แกลเลอรี</h2>
-        <div class="w-16 h-1 bg-wedding-gold/20 mx-auto"></div>
+        <p class="label-caps mb-3">ภาพความทรงจำ</p>
+        <h2 class="text-4xl md:text-5xl font-serif mb-4" style="color:#2C2E2B;">แกลเลอรี</h2>
+        <div class="ornament-divider max-w-[160px] mx-auto">
+          <span class="ornament-star text-sm">✦</span>
+        </div>
       </div>
 
       <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
@@ -65,12 +67,14 @@ const closeLightbox = () => {
     <Transition name="fade">
       <div
         v-if="selectedImage"
-        class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-12"
+        class="fixed inset-0 z-[100] backdrop-blur-sm flex items-center justify-center p-4 md:p-12"
+        style="background:rgba(44,46,43,0.88);"
         @click="closeLightbox"
       >
         <button
           @click="closeLightbox"
-          class="absolute top-8 right-8 text-white/70 hover:text-white transition-colors"
+          class="absolute top-8 right-8 transition-colors"
+          style="color:rgba(245,241,232,0.60);"
         >
           <X class="w-8 h-8" />
         </button>
@@ -78,7 +82,7 @@ const closeLightbox = () => {
         <div class="relative max-w-5xl w-full h-full flex items-center justify-center">
           <img
             :src="selectedImage"
-            class="max-w-full max-h-full object-contain rounded-lg shadow-2xl animate-scale-in"
+            class="max-w-full max-h-full object-contain rounded-2xl shadow-2xl animate-scale-in"
             @click.stop
           />
         </div>
